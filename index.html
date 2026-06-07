@@ -1,9 +1,320 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My First Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAIR-VID | Transparent AI for Admissions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        :root {
+            --primary: #003087;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(0, 48, 135, 0.85), rgba(0, 48, 135, 0.95)), url('https://vilniustech.lt/wp-content/uploads/2023/06/VILNIUS-TECH-logo-EN.png') no-repeat center;
+            background-size: contain;
+        }
+
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #003087;
+            transform: translateY(-2px);
+        }
+
+        .card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+    </style>
 </head>
-<body>
-    <h1>Hello, world! Welcome to my GitHub website.</h1>
+<body class="bg-gray-50 text-gray-800">
+    <!-- NAVBAR -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center py-5">
+                <div class="flex items-center gap-4">
+                    <img src="https://vilniustech.lt/wp-content/uploads/2023/06/VILNIUS-TECH-logo-EN.png" alt="VILNIUS TECH" class="h-10">
+                    <div>
+                        <span class="font-bold text-2xl heading-font tracking-tight text-[#003087]">FAIR-VID</span>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#framework" class="nav-link">Framework</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#results" class="nav-link">Results</a>
+                    <a href="#notebooks" class="nav-link">Notebooks</a>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <a href="https://github.com/fair-vid" target="_blank" 
+                       class="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold border border-gray-300 hover:border-gray-400 rounded-xl transition-colors">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://colab.research.google.com/drive/1mqcCrypaK3u_kvs7nSqX4XTvBgq4-shK?usp=sharing" target="_blank"
+                       class="flex items-center gap-2 bg-[#003087] text-white px-6 py-2.5 rounded-xl text-sm font-semibold hover:bg-blue-900 transition-colors">
+                        <i class="fas fa-play"></i>
+                        <span>Run in Colab</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero-bg text-white py-24 md:py-32">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full mb-6 text-sm">
+                <span class="bg-green-400 w-2 h-2 rounded-full animate-pulse"></span>
+                Reproducible • Transparent • Auditable
+            </div>
+            
+            <h1 class="text-5xl md:text-6xl font-bold heading-font tracking-tighter leading-tight mb-6">
+                Transparent AI Agent Architectures<br>for Student Admissions
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-xl text-white/90 mb-10">
+                From notebook-based tools to process-mined digital twins. 
+                Multimodal AI that is fully inspectable, reproducible, and compliant.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#notebooks" 
+                   class="inline-flex items-center justify-center gap-3 bg-white text-[#003087] hover:bg-gray-100 px-8 py-4 rounded-2xl font-semibold text-lg transition-all">
+                    <i class="fas fa-book"></i>
+                    Open Notebooks
+                </a>
+                <a href="https://peerj.com/preprints/123456/" target="_blank" 
+                   class="inline-flex items-center justify-center gap-3 border-2 border-white hover:bg-white/10 px-8 py-4 rounded-2xl font-semibold text-lg transition-all">
+                    Read the Paper
+                </a>
+            </div>
+            
+            <div class="mt-16 flex justify-center gap-12 text-sm opacity-75">
+                <div>18,434 applications</div>
+                <div>99.2% process completion</div>
+                <div>91% outcome agreement</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ABSTRACT -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl font-bold heading-font text-center mb-8">The FAIR-VID Project</h2>
+            <div class="prose prose-lg mx-auto text-gray-600">
+                <p class="text-center text-xl leading-relaxed">
+                    Artificial intelligence is increasingly applied in student admissions, yet many deployed systems remain difficult to inspect due to opaque cloud services. 
+                    <strong>FAIR-VID</strong> presents a fully transparent AI framework that integrates multimodal data analysis, process mining, and an agent-based digital twin architecture.
+                </p>
+            </div>
+            
+            <div class="mt-12 grid md:grid-cols-3 gap-8">
+                <div class="card bg-gray-50 p-8 rounded-3xl">
+                    <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-file-alt text-3xl text-[#003087]"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl mb-3">Document Understanding</h3>
+                    <p class="text-gray-600">Zero-shot vision-language models + OCR reconciliation for international credentials from 100+ countries.</p>
+                </div>
+                <div class="card bg-gray-50 p-8 rounded-3xl">
+                    <div class="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-video text-3xl text-[#003087]"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl mb-3">Video Interviews</h3>
+                    <p class="text-gray-600">Multimodal analysis of speech, behavior, prosody and content using fully local agents.</p>
+                </div>
+                <div class="card bg-gray-50 p-8 rounded-3xl">
+                    <div class="w-12 h-12 bg-emerald-100 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-project-diagram text-3xl text-[#003087]"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl mb-3">Process Digital Twin</h3>
+                    <p class="text-gray-600">Mined from real event logs. Transparent decision trees replace black-box predictions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FRAMEWORK -->
+    <section id="framework" class="py-20 bg-gray-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-1.5 bg-[#003087] text-white text-sm font-medium rounded-full mb-4">Transparency by Design</span>
+                <h2 class="text-4xl font-bold heading-font">Notebook-Based Digital Twin</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-7">
+                    <img src="https://vilniustech.lt/wp-content/uploads/2024/01/campus.jpg" alt="Framework" class="rounded-3xl shadow-xl w-full">
+                </div>
+                <div class="md:col-span-5 space-y-8">
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0 w-10 h-10 bg-white shadow rounded-2xl flex items-center justify-center text-2xl">📄</div>
+                        <div>
+                            <h4 class="font-semibold">Visual Document Agents</h4>
+                            <p class="text-gray-600 text-sm">OCR + Vision-Language reconciliation with full provenance.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0 w-10 h-10 bg-white shadow rounded-2xl flex items-center justify-center text-2xl">🎥</div>
+                        <div>
+                            <h4 class="font-semibold">Video Analysis Agents</h4>
+                            <p class="text-gray-600 text-sm">Whisper transcription, behavioral stability, content scoring.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0 w-10 h-10 bg-white shadow rounded-2xl flex items-center justify-center text-2xl">🔄</div>
+                        <div>
+                            <h4 class="font-semibold">Process Mining Twin</h4>
+                            <p class="text-gray-600 text-sm">99.2% completion • 91% outcome agreement with historical decisions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold heading-font text-center mb-16">Key Capabilities</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card border border-gray-100 bg-white p-8 rounded-3xl">
+                    <i class="fas fa-lock text-4xl text-emerald-600 mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-3">Local-First &amp; Privacy</h3>
+                    <p class="text-gray-600">Sensitive data stays on institutional or personal machines. Cloud only for depersonalized reasoning.</p>
+                </div>
+                
+                <div class="card border border-gray-100 bg-white p-8 rounded-3xl">
+                    <i class="fas fa-book-open text-4xl text-amber-600 mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-3">Fully Reproducible</h3>
+                    <p class="text-gray-600">Every component runs in Google Colab. Open prompts, open code, open benchmarks.</p>
+                </div>
+                
+                <div class="card border border-gray-100 bg-white p-8 rounded-3xl">
+                    <i class="fas fa-tree text-4xl text-[#003087] mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-3">Transparent Decisions</h3>
+                    <p class="text-gray-600">Junction-specific decision trees provide human-readable rules for every routing decision.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold heading-font mb-4">Proven Performance</h2>
+            <p class="text-xl text-gray-400 mb-16">Evaluated on 18,434 real admission applications</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="text-6xl font-bold text-emerald-400">79.0%</div>
+                    <div class="text-sm uppercase tracking-widest mt-2">Scholarship Prediction</div>
+                </div>
+                <div>
+                    <div class="text-6xl font-bold text-emerald-400">91.0%</div>
+                    <div class="text-sm uppercase tracking-widest mt-2">Admission Accuracy</div>
+                </div>
+                <div>
+                    <div class="text-6xl font-bold text-emerald-400">99.2%</div>
+                    <div class="text-sm uppercase tracking-widest mt-2">Process Completion</div>
+                </div>
+                <div>
+                    <div class="text-6xl font-bold text-emerald-400">91.0%</div>
+                    <div class="text-sm uppercase tracking-widest mt-2">Outcome Agreement</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOTEBOOKS -->
+    <section id="notebooks" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold heading-font mb-6">Try It Yourself</h2>
+            <p class="text-xl text-gray-600 mb-10">All components are available as executable Google Colab notebooks</p>
+            
+            <a href="https://colab.research.google.com/drive/1mqcCrypaK3u_kvs7nSqX4XTvBgq4-shK?usp=sharing" target="_blank"
+               class="inline-flex items-center gap-4 bg-[#003087] hover:bg-blue-900 text-white text-xl font-semibold px-10 py-6 rounded-3xl transition-all">
+                <i class="fas fa-external-link-alt"></i>
+                Launch Main Demo Notebook
+            </a>
+            
+            <div class="mt-12 text-sm text-gray-500">
+                Full repository: <a href="https://github.com/fair-vid" class="underline">github.com/fair-vid</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="py-20 bg-gray-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold heading-font text-center mb-12">Authors</h2>
+            <div class="text-center text-lg">
+                Algirdas Laukaitis¹, Diana Kalibatiene¹, Artūras Serackis¹, Kęstutis Normantas¹,<br>
+                Dovilė Jodenytė¹, Julius Jancevičius¹, Mindaugas Jankauskas¹
+            </div>
+            <p class="text-center text-gray-600 mt-4">
+                Faculty of Fundamental Sciences, Vilnius Gediminas Technical University
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-400 py-16">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12">
+            <div>
+                <div class="flex items-center gap-3 text-white mb-6">
+                    <span class="text-2xl font-bold heading-font">FAIR-VID</span>
+                </div>
+                <p class="text-sm">Making high-stakes AI decisions transparent and reproducible.</p>
+            </div>
+            
+            <div>
+                <h4 class="font-medium text-white mb-4">Resources</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="https://colab.research.google.com/drive/1mqcCrypaK3u_kvs7nSqX4XTvBgq4-shK?usp=sharing" class="hover:text-white">Colab Notebook</a></li>
+                    <li><a href="https://github.com/fair-vid" class="hover:text-white">GitHub Repository</a></li>
+                    <li><a href="#" class="hover:text-white">Full Paper (PeerJ)</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-medium text-white mb-4">Contact</h4>
+                <p class="text-sm">Algirdas Laukaitis<br>
+                <a href="mailto:algirdas.laukaitis@vilniustech.lt" class="hover:text-white">algirdas.laukaitis@vilniustech.lt</a></p>
+            </div>
+        </div>
+        
+        <div class="text-center text-xs mt-16 opacity-60">
+            © 2026 FAIR-VID Project • Vilnius Gediminas Technical University
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind script already included
+    </script>
 </body>
 </html>
+```
