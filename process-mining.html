@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Process Mining Results</title>
+
+<style>
+body {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+img {
+    width: 100%;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+.figure {
+    margin-bottom: 40px;
+}
+
+.caption {
+    font-style: italic;
+    color: #555;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Process Mining Results</h1>
+
+<p>
+The digital twin architecture was developed from historical admission
+event logs rather than an idealized workflow specification.
+Process mining was used to reconstruct the actual execution paths
+observed during the Fall 2025 admission cycle.
+</p>
+
+<div class="figure">
+<h2>Frequency-Based Process Graph</h2>
+
+<img src="images/Frequency-based_graph_2025.png"
+     alt="Frequency-based process graph">
+
+<p class="caption">
+Figure 1. Frequency-based process graph showing the most common
+execution paths observed in historical admission data.
+</p>
+</div>
+
+<div class="figure">
+<h2>Full Process Discovery Graph</h2>
+
+<img src="images/Process_Discovery_2025.png"
+     alt="Full discovered process">
+
+<p class="caption">
+Figure 2. Full process discovery graph reconstructed from historical
+event logs. The large number of alternative paths, loops, and
+exception cases illustrates the classical "spaghetti process"
+effect commonly found in real-world administrative systems.
+</p>
+</div>
+
+<h2>Why Not Use a Single AI Model?</h2>
+
+<p>
+The discovered process contains numerous alternative transitions,
+rework loops, and exceptional paths. This complexity makes it
+difficult to model the entire admission workflow using a single
+end-to-end AI model while maintaining transparency and auditability.
+</p>
+
+<p>
+Instead of treating admissions as one global prediction problem,
+the proposed digital twin decomposes the workflow into discrete
+states connected by decision junctions. Each junction is represented
+by a small interpretable decision tree that determines the next
+process transition using administrative variables and AI-generated
+evidence.
+</p>
+
+<p>
+This state-centric approach transforms a highly complex workflow
+into a collection of local decision problems. As a result,
+individual transition rules remain understandable, auditable,
+and easier to align with institutional policies.
+</p>
+
+</body>
+</html>
