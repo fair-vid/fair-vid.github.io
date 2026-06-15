@@ -20,11 +20,9 @@
         .nav-link:hover { color: var(--primary); transform: translateY(-1px); }
         .card { transition: all .35s cubic-bezier(.4,0,.2,1); }
         .card:hover { transform: translateY(-6px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / .10), 0 8px 10px -6px rgb(0 0 0 / .10); }
-        .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
-    <!-- NAVBAR -->
     <nav class="bg-white/95 backdrop-blur border-b sticky top-0 z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex justify-between items-center py-4">
@@ -57,19 +55,18 @@
         </div>
     </nav>
 
-    <!-- HERO -->
     <header id="top" class="hero-bg text-white py-20 md:py-28">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full mb-6 text-sm">
                 <span class="bg-emerald-400 w-2 h-2 rounded-full animate-pulse"></span>
-                Supplementary material for the ISD2026 camera-ready paper
+                Supplementary material for the ISD conference paper
             </div>
             <h1 class="text-4xl md:text-6xl font-bold heading-font tracking-tighter leading-tight mb-6">
                 A Digital Twin Architecture for<br class="hidden md:block">AI-Infused Information Systems Development
             </h1>
             <p class="max-w-3xl mx-auto text-lg md:text-xl text-white/90 mb-9 leading-relaxed">
-                Companion page for the ISD2026 paper: detailed evaluation protocol, metric derivations, reproducibility artifacts,
-                GitHub repositories, and examples that could not fit into the 12-page conference manuscript.
+                Companion page for the ISD paper: evaluation protocol, metric definitions, reproducibility artifacts,
+                GitHub repositories, and qualitative explanations that could not fit into the conference manuscript.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#evaluation" class="inline-flex items-center justify-center gap-3 bg-white text-[#003087] hover:bg-gray-100 px-7 py-4 rounded-2xl font-semibold text-lg transition-all">
@@ -80,29 +77,28 @@
                 </a>
             </div>
             <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-5 text-sm">
-                <div class="bg-white/10 rounded-2xl p-4"><div class="text-2xl font-bold">18,434</div><div class="opacity-80">applications</div></div>
-                <div class="bg-white/10 rounded-2xl p-4"><div class="text-2xl font-bold">99.2%</div><div class="opacity-80">replay completion</div></div>
-                <div class="bg-white/10 rounded-2xl p-4"><div class="text-2xl font-bold">87.5%</div><div class="opacity-80">action agreement</div></div>
-                <div class="bg-white/10 rounded-2xl p-4"><div class="text-2xl font-bold">87.3%</div><div class="opacity-80">outcome agreement</div></div>
+                <div class="bg-white/10 rounded-2xl p-4"><div class="text-2xl font-bold">Large-scale</div><div class="opacity-80">application dataset</div></div>
+                <div class="bg-white/10 rounded-2xl p-4"><div class="text-2xl font-bold">High</div><div class="opacity-80">replay completion</div></div>
+                <div class="bg-white/10 rounded-2xl p-4"><div class="text-2xl font-bold">Strong</div><div class="opacity-80">action agreement</div></div>
+                <div class="bg-white/10 rounded-2xl p-4"><div class="text-2xl font-bold">Auditable</div><div class="opacity-80">decision logic</div></div>
             </div>
         </div>
     </header>
 
-    <!-- PAPER -->
-    <section id="paper" class="py-18 md:py-20 bg-white">
+    <section id="paper" class="py-20 bg-white">
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center mb-12">
-                <span class="inline-block px-4 py-1.5 bg-blue-50 text-[#003087] text-sm font-semibold rounded-full mb-4">ISD2026 Prague, Czechia</span>
+                <span class="inline-block px-4 py-1.5 bg-blue-50 text-[#003087] text-sm font-semibold rounded-full mb-4">ISD paper companion page</span>
                 <h2 class="text-3xl md:text-4xl font-bold heading-font mb-4">Purpose of this companion page</h2>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
                     The conference paper presents the architecture and summarized empirical results. This page provides the extended material requested by reviewers:
-                    how Tables 1–3 were computed, what artifacts are available, how the workflow reconstruction works, and how the notebook-based prototype maps to enterprise services.
+                    how evaluation metrics are defined, what artifacts are available, how workflow reconstruction works, and how the notebook-based prototype maps to enterprise services.
                 </p>
             </div>
             <div class="grid md:grid-cols-3 gap-7">
                 <div class="card bg-gray-50 p-7 rounded-3xl border border-gray-100">
                     <i class="fas fa-table-list text-3xl text-[#003087] mb-5"></i>
-                    <h3 class="font-semibold text-xl mb-3">Metric derivations</h3>
+                    <h3 class="font-semibold text-xl mb-3">Metric definitions</h3>
                     <p class="text-gray-600">Definitions and computation logic for process replay fidelity, document understanding, and video interview metrics.</p>
                 </div>
                 <div class="card bg-gray-50 p-7 rounded-3xl border border-gray-100">
@@ -113,13 +109,12 @@
                 <div class="card bg-gray-50 p-7 rounded-3xl border border-gray-100">
                     <i class="fas fa-scale-balanced text-3xl text-[#003087] mb-5"></i>
                     <h3 class="font-semibold text-xl mb-3">Governance and limits</h3>
-                    <p class="text-gray-600">Clarifications on explainability, historical bias, privacy restrictions, and the status of notebook-to-enterprise transformation.</p>
+                    <p class="text-gray-600">Clarifications on explainability, historical bias, privacy restrictions, and notebook-to-enterprise transformation.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ARCHITECTURE -->
     <section id="architecture" class="py-20 bg-gray-100">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-14">
@@ -134,7 +129,7 @@
                     <h3 class="text-2xl font-semibold mb-6 heading-font">Agent layers</h3>
                     <div class="space-y-6">
                         <div class="flex gap-5"><div class="w-11 h-11 rounded-2xl bg-blue-100 text-[#003087] flex items-center justify-center text-xl">📄</div><div><h4 class="font-semibold">Visual document understanding</h4><p class="text-gray-600 text-sm">OCR extraction, zero-shot vision-language understanding, OCR/VLM reconciliation, document acceptance checks, and holistic document reasoning.</p></div></div>
-                        <div class="flex gap-5"><div class="w-11 h-11 rounded-2xl bg-purple-100 text-[#003087] flex items-center justify-center text-xl">🎥</div><div><h4 class="font-semibold">Video interview analysis</h4><p class="text-gray-600 text-sm">Whisper transcription, representative frames, behavioral stability, transcript/content scoring, visual profiling, and language analysis.</p></div></div>
+                        <div class="flex gap-5"><div class="w-11 h-11 rounded-2xl bg-purple-100 text-[#003087] flex items-center justify-center text-xl">🎥</div><div><h4 class="font-semibold">Video interview analysis</h4><p class="text-gray-600 text-sm">Transcription, representative frames, behavioral stability, transcript/content scoring, visual profiling, and language analysis.</p></div></div>
                         <div class="flex gap-5"><div class="w-11 h-11 rounded-2xl bg-emerald-100 text-[#003087] flex items-center justify-center text-xl">🌳</div><div><h4 class="font-semibold">Decision rule agents</h4><p class="text-gray-600 text-sm">Junction-specific decision trees transform structured evidence into explicit, human-readable process transitions.</p></div></div>
                     </div>
                 </div>
@@ -151,67 +146,65 @@
         </div>
     </section>
 
-    <!-- EVALUATION -->
     <section id="evaluation" class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-14">
                 <span class="inline-block px-4 py-1.5 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full mb-4">Evaluation protocol</span>
-                <h2 class="text-3xl md:text-4xl font-bold heading-font">Derivation of Tables 1–3</h2>
+                <h2 class="text-3xl md:text-4xl font-bold heading-font">Evaluation definitions and reproducibility notes</h2>
                 <p class="text-gray-600 max-w-3xl mx-auto mt-4 text-lg">
-                    The original institutional data cannot be publicly released. The companion package therefore provides synthetic event logs, schemas, notebooks, and scripts that reproduce the evaluation pipeline without exposing personal data.
+                    Exact numerical results are reported in the paper. This page intentionally uses general claims and focuses on definitions, computation logic, and reproducibility artifacts. The original institutional data cannot be publicly released, so the companion package provides synthetic event logs, schemas, notebooks, and scripts that demonstrate the evaluation pipeline without exposing personal data.
                 </p>
             </div>
 
             <div class="grid lg:grid-cols-3 gap-8">
                 <div class="card bg-gray-50 rounded-3xl p-7 border border-gray-100">
-                    <h3 class="text-xl font-semibold mb-4">Table 1: Process replay fidelity</h3>
+                    <h3 class="text-xl font-semibold mb-4">Process replay fidelity</h3>
                     <ul class="space-y-3 text-sm text-gray-700">
-                        <li><strong>Completion rate:</strong> replayed cases reaching a terminal state / all replayed cases.</li>
-                        <li><strong>Action agreement:</strong> replayed transitions matching the historical next action / evaluated transitions.</li>
+                        <li><strong>Completion rate:</strong> share of replayed cases reaching a terminal state.</li>
+                        <li><strong>Action agreement:</strong> extent to which replayed transitions match historical next actions.</li>
                         <li><strong>Trace similarity:</strong> normalized similarity between historical and replayed state sequences.</li>
-                        <li><strong>Divergence step:</strong> mean index of the first mismatching transition.</li>
-                        <li><strong>Outcome agreement:</strong> final accept/reject outcome matching the historical outcome.</li>
+                        <li><strong>Divergence step:</strong> point at which replayed and historical traces first differ.</li>
+                        <li><strong>Outcome agreement:</strong> alignment between final digital-twin outcome and historical outcome.</li>
                     </ul>
                 </div>
                 <div class="card bg-gray-50 rounded-3xl p-7 border border-gray-100">
-                    <h3 class="text-xl font-semibold mb-4">Table 2: Document understanding</h3>
+                    <h3 class="text-xl font-semibold mb-4">Document understanding</h3>
                     <ul class="space-y-3 text-sm text-gray-700">
                         <li><strong>Credential accuracy:</strong> correctness of extracted credential type or level against human-confirmed reference fields.</li>
                         <li><strong>Math accuracy:</strong> correctness of grade/conversion-related fields against confirmed references.</li>
-                        <li><strong>Configurations:</strong> Gemma 3 27B on institutional GPU; Gemma 3 4B in free-tier browser; Gemma 3 4B with OCR reconciliation.</li>
+                        <li><strong>Configurations:</strong> comparison of larger institutional models, lightweight browser-based models, and OCR-supported pipelines.</li>
                     </ul>
                 </div>
                 <div class="card bg-gray-50 rounded-3xl p-7 border border-gray-100">
-                    <h3 class="text-xl font-semibold mb-4">Table 3: Video interview analysis</h3>
+                    <h3 class="text-xl font-semibold mb-4">Video interview analysis</h3>
                     <ul class="space-y-3 text-sm text-gray-700">
-                        <li><strong>WER:</strong> word error rate against manually verified interview transcripts.</li>
-                        <li><strong>Behavioral F1:</strong> harmonic mean of precision and recall for predefined behavioral/authenticity indicators.</li>
-                        <li><strong>Configurations:</strong> high-resource Whisper-large + Gemma 27B and low-resource Whisper-base + Gemma 4B.</li>
+                        <li><strong>Transcription quality:</strong> measured against manually verified interview transcripts.</li>
+                        <li><strong>Behavioral agreement:</strong> performance on predefined behavioral/authenticity indicators.</li>
+                        <li><strong>Configurations:</strong> comparison of high-resource and low-resource video-analysis pipelines.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="mt-12 bg-gray-900 text-white rounded-3xl p-8 md:p-10">
-                <h3 class="text-2xl font-semibold heading-font mb-8 text-center">Reported ISD2026 results</h3>
+                <h3 class="text-2xl font-semibold heading-font mb-8 text-center">Summary of reported ISD findings</h3>
                 <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
-                    <div><div class="text-4xl font-bold text-emerald-400">99.2%</div><div class="text-xs uppercase tracking-widest mt-2 text-gray-300">Completion</div></div>
-                    <div><div class="text-4xl font-bold text-emerald-400">87.5%</div><div class="text-xs uppercase tracking-widest mt-2 text-gray-300">Action agreement</div></div>
-                    <div><div class="text-4xl font-bold text-emerald-400">61.4%</div><div class="text-xs uppercase tracking-widest mt-2 text-gray-300">High-similarity traces</div></div>
-                    <div><div class="text-4xl font-bold text-emerald-400">3.4</div><div class="text-xs uppercase tracking-widest mt-2 text-gray-300">Mean divergence step</div></div>
-                    <div><div class="text-4xl font-bold text-emerald-400">87.3%</div><div class="text-xs uppercase tracking-widest mt-2 text-gray-300">Outcome agreement</div></div>
+                    <div><div class="text-4xl font-bold text-emerald-400">High</div><div class="text-xs uppercase tracking-widest mt-2 text-gray-300">Completion</div></div>
+                    <div><div class="text-4xl font-bold text-emerald-400">Strong</div><div class="text-xs uppercase tracking-widest mt-2 text-gray-300">Action agreement</div></div>
+                    <div><div class="text-4xl font-bold text-emerald-400">Substantial</div><div class="text-xs uppercase tracking-widest mt-2 text-gray-300">Trace similarity</div></div>
+                    <div><div class="text-4xl font-bold text-emerald-400">Observable</div><div class="text-xs uppercase tracking-widest mt-2 text-gray-300">Divergence points</div></div>
+                    <div><div class="text-4xl font-bold text-emerald-400">Strong</div><div class="text-xs uppercase tracking-widest mt-2 text-gray-300">Outcome agreement</div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- REPRODUCIBILITY -->
     <section id="reproducibility" class="py-20 bg-gray-100">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-14">
                 <span class="inline-block px-4 py-1.5 bg-[#003087] text-white text-sm font-medium rounded-full mb-4">Reproducibility</span>
                 <h2 class="text-3xl md:text-4xl font-bold heading-font">Repositories, notebooks, and artifacts</h2>
                 <p class="text-gray-600 max-w-3xl mx-auto mt-4 text-lg">
-                    The paper’s 12-page limit prevents a full artifact listing. This page acts as the navigation layer for the implementation and supplementary evidence.
+                    The paper’s page limit prevents a full artifact listing. This page acts as the navigation layer for the implementation and supplementary evidence.
                 </p>
             </div>
             <div class="grid md:grid-cols-2 gap-8">
@@ -223,7 +216,7 @@
                         <li>Document understanding agents and prompt templates</li>
                         <li>Video interview analysis notebooks and scoring scripts</li>
                         <li>Decision tree training, export, and rule inspection tools</li>
-                        <li>Metric-computation scripts for Tables 1–3</li>
+                        <li>Metric-computation scripts corresponding to the paper results</li>
                         <li>Notebook-to-service transformation notes</li>
                     </ol>
                 </div>
@@ -239,7 +232,6 @@
         </div>
     </section>
 
-    <!-- GOVERNANCE -->
     <section id="governance" class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-14">
@@ -269,7 +261,6 @@
         </div>
     </section>
 
-    <!-- AUTHORS -->
     <section id="authors" class="py-20 bg-gray-100">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <h2 class="text-3xl md:text-4xl font-bold heading-font mb-6">Authors</h2>
@@ -281,11 +272,10 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="bg-gray-900 text-gray-400 py-14">
         <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
             <div>
-                <div class="text-white text-xl font-bold heading-font mb-4">ISD2026 Digital Twin Supplement</div>
+                <div class="text-white text-xl font-bold heading-font mb-4">ISD Digital Twin Supplement</div>
                 <p class="text-sm leading-relaxed">Supplementary material for a process-centric digital twin architecture for AI-infused information systems development.</p>
             </div>
             <div>
@@ -302,7 +292,7 @@
                 <a href="mailto:algirdas.laukaitis@vilniustech.lt" class="hover:text-white">algirdas.laukaitis@vilniustech.lt</a></p>
             </div>
         </div>
-        <div class="text-center text-xs mt-12 opacity-60">© 2026 ISD2026 Digital Twin Supplement • Vilnius Gediminas Technical University</div>
+        <div class="text-center text-xs mt-12 opacity-60">© 2026 ISD Digital Twin Supplement • Vilnius Gediminas Technical University</div>
     </footer>
 </body>
 </html>
