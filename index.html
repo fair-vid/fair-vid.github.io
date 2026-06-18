@@ -3,296 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISD2026 Supplement | Digital Twin Architecture for AI-Infused IS Development</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
-        :root { --primary: #003087; --accent: #10b981; }
-        body { font-family: 'Inter', system-ui, sans-serif; scroll-behavior: smooth; }
-        .heading-font { font-family: 'Space Grotesk', sans-serif; }
-        .hero-bg {
-            background:
-                linear-gradient(135deg, rgba(0,48,135,0.94), rgba(7,27,68,0.96)),
-                radial-gradient(circle at top right, rgba(16,185,129,0.30), transparent 38%);
-        }
-        .nav-link { transition: all .25s ease; }
-        .nav-link:hover { color: var(--primary); transform: translateY(-1px); }
-        .card { transition: all .35s cubic-bezier(.4,0,.2,1); }
-        .card:hover { transform: translateY(-6px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / .10), 0 8px 10px -6px rgb(0 0 0 / .10); }
-    </style>
+    <title>FAIR-VID | Digital Twin Architecture for Admissions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/site.css">
 </head>
-<body class="bg-gray-50 text-gray-800">
-    <nav class="bg-white/95 backdrop-blur border-b sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-center py-4">
-                <a href="#top" class="flex items-center gap-4">
-                    <div class="w-11 h-11 rounded-2xl bg-[#003087] text-white flex items-center justify-center shadow">
-                        <i class="fas fa-diagram-project"></i>
-                    </div>
-                    <div>
-                        <span class="font-bold text-xl md:text-2xl heading-font tracking-tight text-[#003087]">Digital Twin • Process mining • Multimodal agents </span>
-                        <div class="text-xs text-gray-500 hidden sm:block">Process mining • Multimodal agents • Interpretable decisions</div>
-                    </div>
-                </a>
-                <div class="hidden lg:flex items-center gap-7 text-sm font-medium">
-                    <a href="#paper" class="nav-link">Paper</a>
-                    <a href="#architecture" class="nav-link">Architecture</a>
-                    <a href="#evaluation" class="nav-link">Evaluation</a>
-                    <a href="#reproducibility" class="nav-link">Reproducibility</a>
-                    <a href="#governance" class="nav-link">Governance</a>
-                    <a href="#authors" class="nav-link">Authors</a>
+<body>
+    <nav class="topbar">
+        <div class="site-shell topbar-inner">
+            <a class="brand" href="index.html">
+                <div class="brand-mark">FV</div>
+                <div class="brand-copy">
+                    <strong>FAIR-VID</strong>
+                    <span>Digital twin, process mining, multimodal evidence, interpretable decisions</span>
                 </div>
-                <div class="flex items-center gap-3">
-                    <a href="https://github.com/fair-vid" target="_blank" class="hidden sm:flex items-center gap-2 px-4 py-2 text-sm font-semibold border border-gray-300 hover:border-gray-500 rounded-xl transition-colors">
-                        <i class="fab fa-github"></i><span>GitHub</span>
-                    </a>
-                    <a href="https://colab.research.google.com/drive/1mqcCrypaK3u_kvs7nSqX4XTvBgq4-shK?usp=sharing" target="_blank" class="flex items-center gap-2 bg-[#003087] text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-blue-900 transition-colors">
-                        <i class="fas fa-play"></i><span>Colab</span>
-                    </a>
-                </div>
+            </a>
+            <div class="nav-links">
+                <a href="#overview">Overview</a>
+                <a href="documents.html">Document branch</a>
+                <a href="video.html">Video branch</a>
+                <a href="process-mining.html">Process mining</a>
+                <a href="notebook-to-enterprise.html">Notebook to enterprise</a>
+            </div>
+            <div class="nav-actions">
+                <a class="button-secondary" href="https://github.com/fair-vid" target="_blank" rel="noreferrer">GitHub</a>
+                <a class="button" href="https://colab.research.google.com/drive/1mqcCrypaK3u_kvs7nSqX4XTvBgq4-shK?usp=sharing" target="_blank" rel="noreferrer">Open demo notebook</a>
             </div>
         </div>
     </nav>
 
-    <header id="top" class="hero-bg text-white py-20 md:py-28">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full mb-6 text-sm">
-                <span class="bg-emerald-400 w-2 h-2 rounded-full animate-pulse"></span>
-                Supplementary material for the ISD conference paper
-            </div>
-            <h1 class="text-4xl md:text-6xl font-bold heading-font tracking-tighter leading-tight mb-6">
-                A Digital Twin Architecture for<br class="hidden md:block">AI-Infused Information Systems Development
-            </h1>
-            <p class="max-w-3xl mx-auto text-lg md:text-xl text-white/90 mb-9 leading-relaxed">
-                Companion page for the ISD paper: evaluation protocol, metric definitions, reproducibility artifacts,
-                GitHub repositories, and qualitative explanations that could not fit into the conference manuscript.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#evaluation" class="inline-flex items-center justify-center gap-3 bg-white text-[#003087] hover:bg-gray-100 px-7 py-4 rounded-2xl font-semibold text-lg transition-all">
-                    <i class="fas fa-chart-line"></i> Evaluation Details
-                </a>
-                <a href="https://github.com/fair-vid" target="_blank" class="inline-flex items-center justify-center gap-3 border-2 border-white hover:bg-white/10 px-7 py-4 rounded-2xl font-semibold text-lg transition-all">
-                    <i class="fab fa-github"></i> Open Repositories
-                </a>
-            </div>
-            <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-5 text-sm">
-                <div class="bg-white/10 rounded-2xl p-4"><div class="text-2xl font-bold">Large-scale</div><div class="opacity-80">application dataset</div></div>
-                <div class="bg-white/10 rounded-2xl p-4"><div class="text-2xl font-bold">High</div><div class="opacity-80">replay completion</div></div>
-                <div class="bg-white/10 rounded-2xl p-4"><div class="text-2xl font-bold">Strong</div><div class="opacity-80">action agreement</div></div>
-                <div class="bg-white/10 rounded-2xl p-4"><div class="text-2xl font-bold">Auditable</div><div class="opacity-80">decision logic</div></div>
-            </div>
+    <header class="hero">
+        <div class="site-shell hero-grid">
+            <section class="hero-copy">
+                <div class="eyebrow">Research companion site</div>
+                <h1>FAIR-VID digital twin architecture for admissions</h1>
+                <p>
+                    FAIR-VID is a process-mined digital twin of admissions that connects executable notebooks, multimodal evidence extraction, and junction-specific decision models in one workflow.
+                </p>
+                <div class="hero-actions">
+                    <a class="button" href="#overview">See the framework</a>
+                    <a class="button-secondary" href="process-mining.html">Replay and process mining</a>
+                    <a class="button-ghost" href="notebook-to-enterprise.html">Prompts and generated Python</a>
+                </div>
+                <div class="hero-stats">
+                    <article class="metric">
+                        <strong>Coverage</strong>
+                        <span>site sections map architecture, benchmarks, and artifacts</span>
+                    </article>
+                    <article class="metric">
+                        <strong>Modules</strong>
+                        <span>notebook agents and generated Python modules remain visible as separate components</span>
+                    </article>
+                    <article class="metric">
+                        <strong>Navigation</strong>
+                        <span>benchmark, architecture, and artifact sections are organized for framework users, code users, and paper readers</span>
+                    </article>
+                </div>
+            </section>
+            <aside class="hero-panel">
+                <div>
+                    <div class="section-chip">What this site connects</div>
+                    <h2>System scope, evidence flow, and deployment path</h2>
+                    <p>
+                        This site ties together FAIR-VID papers, Colab notebooks, generated Python modules, process-mining demos, and prompt repositories used to move from notebooks to server-side scripts.
+                    </p>
+                </div>
+                <ul class="hero-list">
+                    <li>Main framework branches are presented separately for document understanding and video interview analysis.</li>
+                    <li>Process mining reconstructs the real workflow and defines the state-centric orchestration layer.</li>
+                    <li>Decision trees remain explicit, local, and inspectable instead of hidden in an end-to-end black box.</li>
+                    <li>Synthetic logs are included as data-structure and method demos when real institutional data cannot be published.</li>
+                </ul>
+            </aside>
         </div>
     </header>
 
-    <section id="paper" class="py-20 bg-white">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <span class="inline-block px-4 py-1.5 bg-blue-50 text-[#003087] text-sm font-semibold rounded-full mb-4">ISD paper companion page</span>
-                <h2 class="text-3xl md:text-4xl font-bold heading-font mb-4">Purpose of this companion page</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                    The conference paper presents the architecture and summarized empirical results. This page provides the extended material requested by reviewers:
-                    how evaluation metrics are defined, what artifacts are available, how workflow reconstruction works, and how the notebook-based prototype maps to enterprise services.
-                </p>
+    <main>
+        <section class="section" id="overview">
+            <div class="site-shell">
+                <div class="section-head">
+                    <div class="eyebrow">Project overview</div>
+                    <h2>Evidence streams mapped to one process twin</h2>
+                    <p>
+                        The core architecture combines visual document understanding, structured application data, and asynchronous video interviews. Each evidence type is processed by dedicated notebooks that emit inspectable files: OCR output, transcripts, JSON summaries, scores, and final state-transition evidence.
+                    </p>
+                </div>
+                <div class="wide-grid">
+                    <article class="wide-card">
+                        <div class="kicker">From the paper</div>
+                        <h3>Core input categories and agent families</h3>
+                        <img src="images/fig1_three_main_types.png" alt="FAIR-VID input categories">
+                        <p class="figure-caption">
+                            FAIR-VID is organized around documents, structured application records, and video interviews. The website mirrors that architecture directly instead of hiding it behind a generic project summary.
+                        </p>
+                    </article>
+                    <article class="wide-card">
+                        <div class="kicker">System structure</div>
+                        <h3>Digital twin instead of an opaque end-to-end predictor</h3>
+                        <p>
+                            FAIR-VID mirrors the observed admission workflow. AI agents convert unstructured evidence into structured features at specific process states, while interpretable decision models decide the next transition. This separates evidence generation from process control.
+                        </p>
+                        <div class="pill-row">
+                            <span class="pill">Process mining</span>
+                            <span class="pill">State-centric orchestration</span>
+                            <span class="pill">Notebook agents</span>
+                            <span class="pill">Interpretable rules</span>
+                            <span class="pill">Local-first execution</span>
+                        </div>
+                    </article>
+                </div>
             </div>
-            <div class="grid md:grid-cols-3 gap-7">
-                <div class="card bg-gray-50 p-7 rounded-3xl border border-gray-100">
-                    <i class="fas fa-table-list text-3xl text-[#003087] mb-5"></i>
-                    <h3 class="font-semibold text-xl mb-3">Metric definitions</h3>
-                    <p class="text-gray-600">Definitions and computation logic for process replay fidelity, document understanding, and video interview metrics.</p>
-                </div>
-                <div class="card bg-gray-50 p-7 rounded-3xl border border-gray-100">
-                    <i class="fas fa-code-branch text-3xl text-[#003087] mb-5"></i>
-                    <h3 class="font-semibold text-xl mb-3">Reproducibility package</h3>
-                    <p class="text-gray-600">Executable Colab notebooks, GitHub repositories, synthetic logs, prompts, schemas, and evaluation scripts.</p>
-                </div>
-                <div class="card bg-gray-50 p-7 rounded-3xl border border-gray-100">
-                    <i class="fas fa-scale-balanced text-3xl text-[#003087] mb-5"></i>
-                    <h3 class="font-semibold text-xl mb-3">Governance and limits</h3>
-                    <p class="text-gray-600">Clarifications on explainability, historical bias, privacy restrictions, and notebook-to-enterprise transformation.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="architecture" class="py-20 bg-gray-100">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-14">
-                <span class="inline-block px-4 py-1.5 bg-[#003087] text-white text-sm font-medium rounded-full mb-4">Architecture</span>
-                <h2 class="text-3xl md:text-4xl font-bold heading-font">Process-centric digital twin</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto mt-4 text-lg">
-                    The system mirrors the real admission workflow reconstructed from event logs. AI agents are invoked only at defined process states, and decision trees control auditable transitions between states.
-                </p>
-            </div>
-            <div class="grid lg:grid-cols-2 gap-8">
-                <div class="bg-white rounded-3xl shadow-sm p-8 border border-gray-100">
-                    <h3 class="text-2xl font-semibold mb-6 heading-font">Agent layers</h3>
-                    <div class="space-y-6">
-                        <div class="flex gap-5"><div class="w-11 h-11 rounded-2xl bg-blue-100 text-[#003087] flex items-center justify-center text-xl">📄</div><div><h4 class="font-semibold">Visual document understanding</h4><p class="text-gray-600 text-sm">OCR extraction, zero-shot vision-language understanding, OCR/VLM reconciliation, document acceptance checks, and holistic document reasoning.</p></div></div>
-                        <div class="flex gap-5"><div class="w-11 h-11 rounded-2xl bg-purple-100 text-[#003087] flex items-center justify-center text-xl">🎥</div><div><h4 class="font-semibold">Video interview analysis</h4><p class="text-gray-600 text-sm">Transcription, representative frames, behavioral stability, transcript/content scoring, visual profiling, and language analysis.</p></div></div>
-                        <div class="flex gap-5"><div class="w-11 h-11 rounded-2xl bg-emerald-100 text-[#003087] flex items-center justify-center text-xl">🌳</div><div><h4 class="font-semibold">Decision rule agents</h4><p class="text-gray-600 text-sm">Junction-specific decision trees transform structured evidence into explicit, human-readable process transitions.</p></div></div>
-                    </div>
+        <section class="section">
+            <div class="site-shell">
+                <div class="section-head">
+                    <div class="eyebrow">Framework map</div>
+                    <h2>Follow the framework by branch, not by one oversized page</h2>
+                    <p>
+                        The FAIR-VID implementation naturally splits into branch pages. The document path starts from OCR and document reasoning. The video path starts from mock interview capture and continues into transcription, authenticity checks, and behavioral evidence. Process mining and notebook-to-enterprise transformation cut across both branches.
+                    </p>
                 </div>
-                <div class="bg-white rounded-3xl shadow-sm p-8 border border-gray-100">
-                    <h3 class="text-2xl font-semibold mb-6 heading-font">What makes this an IS development framework?</h3>
-                    <ul class="space-y-4 text-gray-700">
-                        <li class="flex gap-3"><i class="fas fa-check text-emerald-600 mt-1"></i><span><strong>Process-mined foundation:</strong> the digital twin is derived from observed admission logs rather than idealized documentation.</span></li>
-                        <li class="flex gap-3"><i class="fas fa-check text-emerald-600 mt-1"></i><span><strong>State-centric orchestration:</strong> every case is mapped to a current state, and AI agents operate only at relevant decision junctions.</span></li>
-                        <li class="flex gap-3"><i class="fas fa-check text-emerald-600 mt-1"></i><span><strong>Inspectable artifacts:</strong> each notebook writes explicit JSON, OCR, transcript, score, or report artifacts for downstream inspection.</span></li>
-                        <li class="flex gap-3"><i class="fas fa-check text-emerald-600 mt-1"></i><span><strong>Notebook-to-service path:</strong> modular notebooks serve as prototype components that can be transformed into service-oriented modules.</span></li>
+                <div class="framework-grid">
+                    <article class="tile">
+                        <div class="kicker">Branch</div>
+                        <h3>Document understanding branch</h3>
+                        <p>
+                            OCR extraction, local vision-language understanding, document reconstruction, executive summaries, reconciliation, and applicant-level structured outputs.
+                        </p>
+                        <a class="text-link" href="documents.html">Open the document branch</a>
+                    </article>
+                    <article class="tile">
+                        <div class="kicker">Branch</div>
+                        <h3>Video interview branch</h3>
+                        <p>
+                            Interview recording, audio extraction, transcription, transcript grading, AI-script detection, frame-level analysis, and multimodal interview features.
+                        </p>
+                        <a class="text-link" href="video.html">Open the video branch</a>
+                    </article>
+                    <article class="tile">
+                        <div class="kicker">Cross-cutting layer</div>
+                        <h3>Process mining and replay</h3>
+                        <p>
+                            Historical logs are normalized, mined, abstracted into states, and replayed with next-activity prediction metrics such as completion rate, action agreement, divergence step, and outcome agreement.
+                        </p>
+                        <a class="text-link" href="process-mining.html">Open the process mining page</a>
+                    </article>
+                    <article class="tile">
+                        <div class="kicker">Engineering path</div>
+                        <h3>Notebook to enterprise transformation</h3>
+                        <p>
+                            FAIR-VID explicitly uses prompts and AI programming agents to convert Colab logic into local Python services while preserving inspectable intermediate files, relative paths, and prompt traceability.
+                        </p>
+                        <a class="text-link" href="notebook-to-enterprise.html">Open the engineering page</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="site-shell">
+                <div class="section-head">
+                    <div class="eyebrow">Architecture</div>
+                    <h2>System structure and deployment pattern</h2>
+                    <p>
+                        The paper defines symmetric transparency and a notebook-based deployment pattern. The same process structure is shown across actors, and the same notebook decomposition is used as the source representation for later service deployment.
+                    </p>
+                </div>
+                <div class="gallery-grid">
+                    <article class="figure-card">
+                        <h3>Symmetric process visibility</h3>
+                        <img src="images/fig3 Symmetric Transparency Design Pattern.drawio.png" alt="Symmetric transparency design pattern">
+                        <p class="figure-caption">
+                            The process is represented as explicit process steps rather than a single score. The paper uses this structure to align internal workflow visibility with applicant-facing visibility.
+                        </p>
+                    </article>
+                    <article class="figure-card">
+                        <h3>Notebook-based digital twin implementation</h3>
+                        <img src="images/Fig4_Notebook Based Digital Twin Implementation Pattern.drawio.png" alt="Notebook based digital twin implementation pattern">
+                        <p class="figure-caption">
+                            Each component can be developed, executed, and audited as a notebook first. FAIR-VID then uses prompt templates and generated Python scripts to move that logic into a local or server environment.
+                        </p>
+                    </article>
+                    <article class="figure-card">
+                        <h3>What the benchmark layer shows</h3>
+                        <p>
+                            FAIR-VID supports benchmark reporting across papers without hardwiring one result table into the landing page. The site lists benchmark dimensions such as replay fidelity, multimodal prediction quality, document understanding, and deployment structure.
+                        </p>
+                        <div class="pill-row">
+                            <span class="pill">Replay fidelity</span>
+                            <span class="pill">Outcome alignment</span>
+                            <span class="pill">Multimodal prediction</span>
+                            <span class="pill">Deployment transparency</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="site-shell split-grid">
+                <article class="panel">
+                    <div class="eyebrow">Reproducibility assets</div>
+                    <h3>What framework users, code users, and paper readers can run or inspect</h3>
+                    <ul class="plain-list">
+                        <li>RecordVideo.ipynb as the video demo entry point for the paper.</li>
+                        <li>tesseract-ocr.ipynb as the explicit starting notebook for the document branch.</li>
+                        <li>Process Mining Simulation.ipynb plus the journal and decision-analysis notebooks that prepare its inputs.</li>
+                        <li>Generated Python modules that preserve the notebook logic for local server execution.</li>
+                        <li>Prompt repositories that connect paper concepts to code migration steps.</li>
                     </ul>
-                </div>
+                </article>
+                <article class="callout">
+                    <div class="eyebrow">Scope note</div>
+                    <h3>The public demo is simpler than the server-side solution</h3>
+                    <p>
+                        The paper demo focuses on methodology. The server-side FAIR-VID environment also includes additional data sources such as emails and operational side artifacts.
+                    </p>
+                </article>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="evaluation" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-14">
-                <span class="inline-block px-4 py-1.5 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full mb-4">Evaluation protocol</span>
-                <h2 class="text-3xl md:text-4xl font-bold heading-font">Evaluation definitions and reproducibility notes</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto mt-4 text-lg">
-                    Exact numerical results are reported in the paper. This page intentionally uses general claims and focuses on definitions, computation logic, and reproducibility artifacts. The original institutional data cannot be publicly released, so the companion package provides synthetic event logs, schemas, notebooks, and scripts that demonstrate the evaluation pipeline without exposing personal data.
-                </p>
+        <section class="section">
+            <div class="site-shell">
+                <div class="section-head">
+                    <div class="eyebrow">Links</div>
+                    <h2>Direct entry points into the FAIR-VID evidence base</h2>
+                </div>
+                <div class="link-grid">
+                    <article class="link-card">
+                        <h3>Video demo notebook</h3>
+                        <p>Mock interview recording entry point used on the landing page and connected to the downstream video-analysis notebooks.</p>
+                        <a class="text-link" href="https://colab.research.google.com/drive/1mqcCrypaK3u_kvs7nSqX4XTvBgq4-shK?usp=sharing" target="_blank" rel="noreferrer">Open RecordVideo.ipynb</a>
+                    </article>
+                    <article class="link-card">
+                        <h3>Document branch notebook</h3>
+                        <p>The explicit starting notebook for the document branch.</p>
+                        <a class="text-link" href="https://colab.research.google.com/drive/1RfXAZ_5rwYmLdAiHPgm-bDOBrQu2T7Sw?usp=sharing" target="_blank" rel="noreferrer">Open tesseract-ocr.ipynb</a>
+                    </article>
+                    <article class="link-card">
+                        <h3>Process mining simulation</h3>
+                        <p>The notebook dedicated to replay, next-activity prediction, and process-level evaluation metrics.</p>
+                        <a class="text-link" href="https://colab.research.google.com/drive/1_-3uCwUr08i6PGnSXXgrZESqkT0GqiNm?usp=drive_link" target="_blank" rel="noreferrer">Open Process Mining Simulation.ipynb</a>
+                    </article>
+                    <article class="link-card">
+                        <h3>Prompt repository</h3>
+                        <p>Reusable prompt templates that preserve notebook logic while creating or synchronizing local Python scripts.</p>
+                        <a class="text-link" href="https://github.com/fair-vid/admission_prompts" target="_blank" rel="noreferrer">Open admission_prompts</a>
+                    </article>
+                    <article class="link-card">
+                        <h3>FAIR-VID organization</h3>
+                        <p>Open repositories that expose the surrounding code and notebooks referenced by the papers.</p>
+                        <a class="text-link" href="https://github.com/fair-vid" target="_blank" rel="noreferrer">Open GitHub organization</a>
+                    </article>
+                    <article class="link-card">
+                        <h3>Synthetic logs</h3>
+                        <p>Public synthetic data used to explain event-log structure, replay methods, and data flow without exposing real applicants.</p>
+                        <a class="text-link" href="process-mining.html#synthetic">See the synthetic data explanation</a>
+                    </article>
+                </div>
             </div>
+        </section>
+    </main>
 
-            <div class="grid lg:grid-cols-3 gap-8">
-                <div class="card bg-gray-50 rounded-3xl p-7 border border-gray-100">
-                    <h3 class="text-xl font-semibold mb-4">Process replay fidelity</h3>
-                    <ul class="space-y-3 text-sm text-gray-700">
-                        <li><strong>Completion rate:</strong> share of replayed cases reaching a terminal state.</li>
-                        <li><strong>Action agreement:</strong> extent to which replayed transitions match historical next actions.</li>
-                        <li><strong>Trace similarity:</strong> normalized similarity between historical and replayed state sequences.</li>
-                        <li><strong>Divergence step:</strong> point at which replayed and historical traces first differ.</li>
-                        <li><strong>Outcome agreement:</strong> alignment between final digital-twin outcome and historical outcome.</li>
-                    </ul>
-                </div>
-                <div class="card bg-gray-50 rounded-3xl p-7 border border-gray-100">
-                    <h3 class="text-xl font-semibold mb-4">Document understanding</h3>
-                    <ul class="space-y-3 text-sm text-gray-700">
-                        <li><strong>Credential accuracy:</strong> correctness of extracted credential type or level against human-confirmed reference fields.</li>
-                        <li><strong>Math accuracy:</strong> correctness of grade/conversion-related fields against confirmed references.</li>
-                        <li><strong>Configurations:</strong> comparison of larger institutional models, lightweight browser-based models, and OCR-supported pipelines.</li>
-                    </ul>
-                </div>
-                <div class="card bg-gray-50 rounded-3xl p-7 border border-gray-100">
-                    <h3 class="text-xl font-semibold mb-4">Video interview analysis</h3>
-                    <ul class="space-y-3 text-sm text-gray-700">
-                        <li><strong>Transcription quality:</strong> measured against manually verified interview transcripts.</li>
-                        <li><strong>Behavioral agreement:</strong> performance on predefined behavioral/authenticity indicators.</li>
-                        <li><strong>Configurations:</strong> comparison of high-resource and low-resource video-analysis pipelines.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="mt-12 bg-gray-900 text-white rounded-3xl p-8 md:p-10">
-                <h3 class="text-2xl font-semibold heading-font mb-8 text-center">Summary of reported ISD findings</h3>
-                <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
-                    <div><div class="text-4xl font-bold text-emerald-400">High</div><div class="text-xs uppercase tracking-widest mt-2 text-gray-300">Completion</div></div>
-                    <div><div class="text-4xl font-bold text-emerald-400">Strong</div><div class="text-xs uppercase tracking-widest mt-2 text-gray-300">Action agreement</div></div>
-                    <div><div class="text-4xl font-bold text-emerald-400">Substantial</div><div class="text-xs uppercase tracking-widest mt-2 text-gray-300">Trace similarity</div></div>
-                    <div><div class="text-4xl font-bold text-emerald-400">Observable</div><div class="text-xs uppercase tracking-widest mt-2 text-gray-300">Divergence points</div></div>
-                    <div><div class="text-4xl font-bold text-emerald-400">Strong</div><div class="text-xs uppercase tracking-widest mt-2 text-gray-300">Outcome agreement</div></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="reproducibility" class="py-20 bg-gray-100">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-14">
-                <span class="inline-block px-4 py-1.5 bg-[#003087] text-white text-sm font-medium rounded-full mb-4">Reproducibility</span>
-                <h2 class="text-3xl md:text-4xl font-bold heading-font">Repositories, notebooks, and artifacts</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto mt-4 text-lg">
-                    The paper’s page limit prevents a full artifact listing. This page acts as the navigation layer for the implementation and supplementary evidence.
-                </p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
-                    <h3 class="text-2xl font-semibold heading-font mb-5">Artifact map</h3>
-                    <ol class="space-y-3 text-gray-700 list-decimal list-inside">
-                        <li>Process mining and workflow reconstruction notebooks</li>
-                        <li>Synthetic event logs and state-transition schemas</li>
-                        <li>Document understanding agents and prompt templates</li>
-                        <li>Video interview analysis notebooks and scoring scripts</li>
-                        <li>Decision tree training, export, and rule inspection tools</li>
-                        <li>Metric-computation scripts corresponding to the paper results</li>
-                        <li>Notebook-to-service transformation notes</li>
-                    </ol>
-                </div>
-                <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
-                    <h3 class="text-2xl font-semibold heading-font mb-5">Quick links</h3>
-                    <div class="space-y-4">
-                        <a href="https://github.com/fair-vid" target="_blank" class="flex items-center justify-between p-4 rounded-2xl border hover:border-[#003087] transition-colors"><span><i class="fab fa-github mr-3"></i>GitHub organization</span><i class="fas fa-arrow-up-right-from-square text-gray-400"></i></a>
-                        <a href="https://colab.research.google.com/drive/1mqcCrypaK3u_kvs7nSqX4XTvBgq4-shK?usp=sharing" target="_blank" class="flex items-center justify-between p-4 rounded-2xl border hover:border-[#003087] transition-colors"><span><i class="fas fa-play mr-3"></i>Main Colab notebook</span><i class="fas fa-arrow-up-right-from-square text-gray-400"></i></a>
-                        <a href="#evaluation" class="flex items-center justify-between p-4 rounded-2xl border hover:border-[#003087] transition-colors"><span><i class="fas fa-calculator mr-3"></i>Metric definitions</span><i class="fas fa-arrow-down text-gray-400"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="governance" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-14">
-                <span class="inline-block px-4 py-1.5 bg-amber-50 text-amber-700 text-sm font-semibold rounded-full mb-4">Governance and limitations</span>
-                <h2 class="text-3xl md:text-4xl font-bold heading-font">What the paper claims — and what it does not claim</h2>
-            </div>
-            <div class="grid lg:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-7 rounded-3xl border border-gray-100">
-                    <h3 class="font-semibold text-xl mb-3"><i class="fas fa-eye text-[#003087] mr-2"></i>Explainability</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">The architecture provides process-level, evidence-level, and rule-level explainability. It does not claim that every internal operation of every foundation model is fully interpretable.</p>
-                </div>
-                <div class="bg-gray-50 p-7 rounded-3xl border border-gray-100">
-                    <h3 class="font-semibold text-xl mb-3"><i class="fas fa-triangle-exclamation text-amber-600 mr-2"></i>Historical bias</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">High agreement with historical decisions is not evidence of fairness. Decision trees trained on historical transitions may reproduce systematic institutional bias and require subgroup-level audits before deployment.</p>
-                </div>
-                <div class="bg-gray-50 p-7 rounded-3xl border border-gray-100">
-                    <h3 class="font-semibold text-xl mb-3"><i class="fas fa-server text-emerald-600 mr-2"></i>Deployment status</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Notebook-to-enterprise transformation is presented as an engineering feasibility demonstration. Live production validation, monitoring, authentication, and load testing remain future work.</p>
-                </div>
-            </div>
-            <div class="mt-10 bg-blue-50 border border-blue-100 rounded-3xl p-7">
-                <h3 class="font-semibold text-xl mb-3">AI-assisted tools disclosure</h3>
-                <p class="text-gray-700 leading-relaxed">
-                    AI-assisted programming tools were used to support code refactoring and notebook-to-service transformation experiments. AI-assisted writing tools may be used for language editing and readability improvements. All conceptual contributions, experimental design, results, interpretations, and final manuscript decisions remain the responsibility of the authors.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="authors" class="py-20 bg-gray-100">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold heading-font mb-6">Authors</h2>
-            <p class="text-lg leading-relaxed">
-                Algirdas Laukaitis, Diana Kalibatiene, Artūras Serackis, Kęstutis Normantas,<br class="hidden md:block">
-                Mindaugas Jankauskas, Julius Jancevičius and Dovilė Jodenytė
+    <footer class="footer">
+        <div class="site-shell footer-card">
+            <strong>FAIR-VID site summary</strong>
+            <p>
+                This site now presents the FAIR-VID system as a structured framework rather than a generic appendix. Users and paper readers can move from architectural claims to notebooks, generated code, process metrics, prompt templates, and synthetic demo assets without leaving the site.
             </p>
-            <p class="text-gray-600 mt-4">Vilnius Gediminas Technical University</p>
         </div>
-    </section>
-
-    <footer class="bg-gray-900 text-gray-400 py-14">
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
-            <div>
-                <div class="text-white text-xl font-bold heading-font mb-4">ISD Digital Twin Supplement</div>
-                <p class="text-sm leading-relaxed">Supplementary material for a process-centric digital twin architecture for AI-infused information systems development.</p>
-            </div>
-            <div>
-                <h4 class="font-medium text-white mb-4">Resources</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="https://github.com/fair-vid" target="_blank" class="hover:text-white">GitHub repositories</a></li>
-                    <li><a href="https://colab.research.google.com/drive/1mqcCrypaK3u_kvs7nSqX4XTvBgq4-shK?usp=sharing" target="_blank" class="hover:text-white">Main Colab notebook</a></li>
-                    <li><a href="#evaluation" class="hover:text-white">Evaluation protocol</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-medium text-white mb-4">Contact</h4>
-                <p class="text-sm">Algirdas Laukaitis<br>
-                <a href="mailto:algirdas.laukaitis@vilniustech.lt" class="hover:text-white">algirdas.laukaitis@vilniustech.lt</a></p>
-            </div>
-        </div>
-        <div class="text-center text-xs mt-12 opacity-60">© 2026 ISD Digital Twin Supplement • Vilnius Gediminas Technical University</div>
     </footer>
 </body>
 </html>

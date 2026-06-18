@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAIR-VID Notebook to Enterprise | Prompts, Scripts, and Deployment Pattern</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+    <nav class="topbar">
+        <div class="site-shell topbar-inner">
+            <a class="brand" href="index.html">
+                <div class="brand-mark">FV</div>
+                <div class="brand-copy">
+                    <strong>FAIR-VID</strong>
+                    <span>Notebook to enterprise</span>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="documents.html">Document branch</a>
+                <a href="video.html">Video branch</a>
+                <a href="process-mining.html">Process mining</a>
+            </div>
+            <div class="nav-actions">
+                <a class="button-secondary" href="https://github.com/fair-vid/admission_prompts" target="_blank" rel="noreferrer">Prompt repo</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="site-shell page-hero-grid">
+            <section class="page-hero">
+                <div class="eyebrow">Engineering structure</div>
+                <h1>FAIR-VID uses notebooks as the source layer for later Python services.</h1>
+                <p>
+                    This is a core FAIR-VID claim in the paper. The framework is prototyped as executable notebooks, then migrated or synchronized into server-side Python with prompt templates that preserve inspectable outputs and local execution constraints.
+                </p>
+                <div class="pill-row">
+                    <span class="pill">Notebook source of truth</span>
+                    <span class="pill">Prompt-managed migration</span>
+                    <span class="pill">Local paths and Ollama</span>
+                    <span class="pill">Per-agent scripts</span>
+                </div>
+            </section>
+            <article class="hero-panel">
+                <div>
+                    <div class="section-chip">Code mapping</div>
+                    <h2>Generated modules already exist in the FAIR-VID tree</h2>
+                    <p>
+                        The current FAIR-VID folders contain notebook-derived Python modules for journal analysis, document summaries, aggregation, audio extraction, transcription, and transcript grading. The site maps these scripts to their notebook sources.
+                    </p>
+                </div>
+                <ul class="hero-list">
+                    <li>Journal_events_analysis.py mirrors the process-mining notebook.</li>
+                    <li>doc_executiveSummary.py preserves prompt-driven document summarization.</li>
+                    <li>video_interview_transcript_grade_ollama.py preserves transcript evaluation with fetched prompts.</li>
+                </ul>
+            </article>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="site-shell wide-grid">
+                <article class="wide-card">
+                    <div class="kicker">Paper figure</div>
+                    <h3>Notebook-based digital twin implementation pattern</h3>
+                    <img src="images/Fig4_Notebook Based Digital Twin Implementation Pattern.drawio.png" alt="Notebook to enterprise pattern">
+                    <p class="figure-caption">
+                        The ISD paper explicitly depicts notebooks as the modular implementation form of the digital twin. The same decomposition is later used when AI programming agents generate server-side code.
+                    </p>
+                </article>
+                <article class="wide-card">
+                    <div class="kicker">Prompt template project</div>
+                    <h3>The admission prompts repository formalizes that migration</h3>
+                    <p>
+                        The local prompt-template README defines the design principle: Colab notebooks are for use and inspection, while server-side Python scripts are for stable local execution. The templates are part of the FAIR-VID framework method.
+                    </p>
+                    <div class="pill-row">
+                        <span class="pill">notebook_to_script_adapter_prompt.md</span>
+                        <span class="pill">colab-to-server-script-update-prompt.md</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="site-shell">
+                <div class="section-head">
+                    <div class="eyebrow">Framework flow</div>
+                    <h2>How paper, notebooks, prompts, and scripts fit together</h2>
+                </div>
+                <div class="branch-grid">
+                    <article class="step-card">
+                        <div class="step-card-header">
+                            <div class="step-index">1</div>
+                            <h3>Paper defines the architectural pattern</h3>
+                        </div>
+                        <p>
+                            The manuscript argues for modular notebook agents, symmetric transparency, and interpretable orchestration. This is the conceptual layer.
+                        </p>
+                    </article>
+                    <article class="step-card">
+                        <div class="step-card-header">
+                            <div class="step-index">2</div>
+                            <h3>Notebooks become the executable specification</h3>
+                        </div>
+                        <p>
+                            Each agent is built and tested in Colab with visible intermediate artifacts and shared storage for framework users, code users, and paper readers.
+                        </p>
+                    </article>
+                    <article class="step-card">
+                        <div class="step-card-header">
+                            <div class="step-index">3</div>
+                            <h3>Prompt templates migrate or synchronize logic</h3>
+                        </div>
+                        <p>
+                            FAIR-VID uses prompt templates to either create a first server script from a notebook or update an existing server script after the notebook changes.
+                        </p>
+                    </article>
+                    <article class="step-card">
+                        <div class="step-card-header">
+                            <div class="step-index">4</div>
+                            <h3>Server-side Python preserves inspectability</h3>
+                        </div>
+                        <p>
+                            Local scripts keep relative paths, log files, JSON outputs, prompt traceability, and applicant-folder organization so the deployment step does not destroy inspectability.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="site-shell split-grid">
+                <article class="panel">
+                    <div class="eyebrow">Concrete examples</div>
+                    <h3>Examples already present in FAIR-VID</h3>
+                    <ul class="plain-list">
+                        <li>Document scripts use applicant-application subdirectories and prompt folders from the FAIR-VID prompt repository.</li>
+                        <li>Transcript grading scripts fetch interview-evaluator prompts and save one JSON per transcript.</li>
+                        <li>Process-mining code preserves the notebook’s missing-ID recovery, event normalization, and simulation logic.</li>
+                    </ul>
+                </article>
+                <article class="callout">
+                    <div class="eyebrow">System implication</div>
+                    <h3>The method covers IS implementation and model evaluation</h3>
+                    <p>
+                        FAIR-VID specifies AI systems in high-stakes domains as versionable, testable components. The prompt-guided notebook-to-code bridge is part of that method because it maps prototype logic to institutional infrastructure.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="site-shell">
+                <div class="section-head">
+                    <div class="eyebrow">Repositories</div>
+                    <h2>Where to inspect the prompts and code-generation assumptions</h2>
+                </div>
+                <div class="link-grid">
+                    <article class="link-card">
+                        <h3>admission_prompts repository</h3>
+                        <p>Public repository that contains prompt files referenced by the generated scripts.</p>
+                        <a class="text-link" href="https://github.com/fair-vid/admission_prompts" target="_blank" rel="noreferrer">Open GitHub repo</a>
+                    </article>
+                    <article class="link-card">
+                        <h3>Adapter prompt</h3>
+                        <p>Used when a new server-side Python script needs to be created from a notebook.</p>
+                        <a class="text-link" href="https://github.com/fair-vid/admission_prompts/tree/main" target="_blank" rel="noreferrer">Inspect the prompt project</a>
+                    </article>
+                    <article class="link-card">
+                        <h3>Update prompt</h3>
+                        <p>Used when a notebook changes but a corresponding server script already exists and must be synchronized.</p>
+                        <a class="text-link" href="https://github.com/fair-vid/admission_prompts/tree/main" target="_blank" rel="noreferrer">See update-oriented prompts</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="site-shell footer-card">
+            <strong>Notebook-to-enterprise summary</strong>
+            <p>
+                FAIR-VID treats the migration path as part of the method. The site shows how the paper, notebooks, prompts, and generated scripts map to the same architecture.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAIR-VID Video Branch | Mock Interviews, Transcription, and Behavioral Evidence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+    <nav class="topbar">
+        <div class="site-shell topbar-inner">
+            <a class="brand" href="index.html">
+                <div class="brand-mark">FV</div>
+                <div class="brand-copy">
+                    <strong>FAIR-VID</strong>
+                    <span>Video branch</span>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="documents.html">Document branch</a>
+                <a href="process-mining.html">Process mining</a>
+                <a href="notebook-to-enterprise.html">Notebook to enterprise</a>
+            </div>
+            <div class="nav-actions">
+                <a class="button" href="https://colab.research.google.com/drive/1mqcCrypaK3u_kvs7nSqX4XTvBgq4-shK?usp=sharing" target="_blank" rel="noreferrer">Start notebook</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="site-shell page-hero-grid">
+            <section class="page-hero">
+                <div class="eyebrow">Video branch</div>
+                <h1>From mock interview capture to multimodal interview evidence.</h1>
+                <p>
+                    The video branch starts with a user-friendly Colab notebook that records a mock interview or redirects to mockup data. From there, FAIR-VID splits interview video into audio, transcripts, transcript grades, frame-level evidence, and non-verbal indicators before later decision models consume the outputs.
+                </p>
+                <div class="pill-row">
+                    <span class="pill">RecordVideo.ipynb</span>
+                    <span class="pill">Whisper transcription</span>
+                    <span class="pill">Authenticity checks</span>
+                    <span class="pill">Frame evidence</span>
+                </div>
+            </section>
+            <article class="hero-panel">
+                <div>
+                    <div class="section-chip">Entry notebook</div>
+                    <h2>The notebook itself explains the branch split</h2>
+                    <p>
+                        RecordVideo.ipynb is the demo entry point for the paper and links to the next video-processing notebook plus the parallel document branch. This exposes the FAIR-VID branching logic from the start.
+                    </p>
+                </div>
+                <ul class="hero-list">
+                    <li>Mock interview recording or alternative mockup data.</li>
+                    <li>Audio extraction and speech transcription as explicit artifacts.</li>
+                    <li>Transcript grading for relevance, clarity, authenticity, and AI-script markers.</li>
+                    <li>Visual and behavioral analysis as a separate stage rather than a merged black box.</li>
+                </ul>
+            </article>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="site-shell">
+                <div class="section-head">
+                    <div class="eyebrow">Branch scope</div>
+                    <h2>Why the video pipeline is decomposed into small agents</h2>
+                    <p>
+                        Admissions interviews are asynchronous, multilingual, and culturally diverse. The paper and notebook chain treat the interview as a sequence of evidence transformations so that transcription quality, behavioral indicators, and authenticity concerns can be inspected separately instead of being merged into one opaque score.
+                    </p>
+                </div>
+                <div class="three-grid">
+                    <article class="tile">
+                        <div class="kicker">Language</div>
+                        <h3>Speech first</h3>
+                        <p>
+                            Whisper-based transcription is central because understanding what the applicant says is the core admissions task. The notebooks are designed for non-native English accents typical in international admissions.
+                        </p>
+                    </article>
+                    <article class="tile">
+                        <div class="kicker">Behavior</div>
+                        <h3>Visual evidence remains separate</h3>
+                        <p>
+                            Frame extraction, face and motion analysis, and forensic cues are handled as separate components so framework users and paper readers can distinguish transcript-driven conclusions from visual cues.
+                        </p>
+                    </article>
+                    <article class="tile">
+                        <div class="kicker">Transparency</div>
+                        <h3>Promptable interview grading</h3>
+                        <p>
+                            The transcript-grading script fetches its evaluator prompt from the FAIR-VID prompts repository and stores per-transcript outputs rather than only final scores.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="site-shell">
+                <div class="section-head">
+                    <div class="eyebrow">Pipeline</div>
+                    <h2>Visible stages in the current notebook and Python chain</h2>
+                </div>
+                <div class="branch-grid">
+                    <article class="step-card">
+                        <div class="step-card-header">
+                            <div class="step-index">1</div>
+                            <h3>Mock interview capture</h3>
+                        </div>
+                        <p>
+                            The paper demo begins with RecordVideo.ipynb. Framework users and paper readers can either record a real response or switch to the linked notebook that downloads pre-recorded mock data.
+                        </p>
+                    </article>
+                    <article class="step-card">
+                        <div class="step-card-header">
+                            <div class="step-index">2</div>
+                            <h3>Audio extraction and transcription</h3>
+                        </div>
+                        <p>
+                            The next notebooks and scripts convert video to audio, then audio to transcripts. FAIR-VID exposes these artifacts because later grading depends on the transcript text rather than a hidden latent representation.
+                        </p>
+                        <div class="pill-row">
+                            <span class="pill">extract_audio_linux.py</span>
+                            <span class="pill">transcribe_audio_linux.py</span>
+                        </div>
+                    </article>
+                    <article class="step-card">
+                        <div class="step-card-header">
+                            <div class="step-index">3</div>
+                            <h3>Transcript evaluation</h3>
+                        </div>
+                        <p>
+                            The transcript grading notebook and Python module evaluate relevance, clarity, naturalness, and markers of AI-generated or scripted delivery using prompt-driven JSON outputs.
+                        </p>
+                        <div class="pill-row">
+                            <span class="pill">video_interview_transcript_grade_ollama.py</span>
+                            <span class="pill">JSON outputs</span>
+                        </div>
+                    </article>
+                    <article class="step-card">
+                        <div class="step-card-header">
+                            <div class="step-index">4</div>
+                            <h3>Visual behavior and frame evidence</h3>
+                        </div>
+                        <p>
+                            The notebook chain then moves to representative frames, visual descriptions, and MediaPipe-oriented face or motion analysis. This is where non-verbal evidence becomes explicit rather than implied.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="site-shell split-grid">
+                <article class="panel">
+                    <div class="eyebrow">Paper context</div>
+                    <h3>The video branch is also a student-facing transparency artifact</h3>
+                    <ul class="plain-list">
+                        <li>The larger draft frames mock interviews as a way for students to inspect AI feedback over repeated attempts.</li>
+                        <li>This turns the digital twin into both an evaluation system and a learning environment.</li>
+                        <li>Outputs such as transcripts, text evaluations, and frame-level evidence are available for inspection and review.</li>
+                    </ul>
+                </article>
+                <article class="callout">
+                    <div class="eyebrow">Operational note</div>
+                    <h3>This branch is not only about scoring fluency</h3>
+                    <p>
+                        FAIR-VID treats interviews as a source of verbal and non-verbal evidence. The objective is not a single personality score; it is an inspectable collection of signals that later decision rules can use together with documents and structured application data.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="site-shell">
+                <div class="section-head">
+                    <div class="eyebrow">Branch entry points</div>
+                    <h2>Notebook links in the video chain</h2>
+                </div>
+                <div class="link-grid">
+                    <article class="link-card">
+                        <h3>RecordVideo.ipynb</h3>
+                        <p>Main demo entry point for the paper with recording and next-step links.</p>
+                        <a class="text-link" href="https://colab.research.google.com/drive/1mqcCrypaK3u_kvs7nSqX4XTvBgq4-shK?usp=sharing" target="_blank" rel="noreferrer">Open video entry notebook</a>
+                    </article>
+                    <article class="link-card">
+                        <h3>Audio transcription stage</h3>
+                        <p>The notebook that explicitly identifies itself as step 3 in the digital twin demo.</p>
+                        <a class="text-link" href="https://colab.research.google.com/drive/1jTYrU0brHLeMTI65ZzKUDjL8iiCGddPp?usp=sharing" target="_blank" rel="noreferrer">Open audio processing notebook</a>
+                    </article>
+                    <article class="link-card">
+                        <h3>Visual behavior stage</h3>
+                        <p>Linked directly from the transcript evaluation notebook as the next visible evidence layer.</p>
+                        <a class="text-link" href="https://colab.research.google.com/drive/1s4_BvYwYsaTTuakjWip8A79VdepowvgY?usp=sharing" target="_blank" rel="noreferrer">Open visual behavior notebook</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="site-shell footer-card">
+            <strong>Video branch overview</strong>
+            <p>
+                The FAIR-VID video path is presented as a chain of agents: mock interview capture, transcription, transcript evaluation, and separate visual evidence extraction. That structure matches both the notebooks and the paper architecture.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

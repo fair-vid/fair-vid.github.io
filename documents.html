@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAIR-VID Document Branch | OCR, VLMs, and Structured Summaries</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+    <nav class="topbar">
+        <div class="site-shell topbar-inner">
+            <a class="brand" href="index.html">
+                <div class="brand-mark">FV</div>
+                <div class="brand-copy">
+                    <strong>FAIR-VID</strong>
+                    <span>Document branch</span>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="video.html">Video branch</a>
+                <a href="process-mining.html">Process mining</a>
+                <a href="notebook-to-enterprise.html">Notebook to enterprise</a>
+            </div>
+            <div class="nav-actions">
+                <a class="button" href="https://colab.research.google.com/drive/1RfXAZ_5rwYmLdAiHPgm-bDOBrQu2T7Sw?usp=sharing" target="_blank" rel="noreferrer">Start notebook</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="site-shell page-hero-grid">
+            <section class="page-hero">
+                <div class="eyebrow">Document branch</div>
+                <h1>From OCR to applicant-level document reasoning.</h1>
+                <p>
+                    FAIR-VID treats international admissions documents as a pipeline of explicit stages rather than a hidden preprocessing step. The branch begins at tesseract-ocr.ipynb and continues through local vision-language reasoning, document reconstruction, executive summarization, reconciliation, and downstream applicant-level evidence files.
+                </p>
+                <div class="pill-row">
+                    <span class="pill">Large document sets per applicant</span>
+                    <span class="pill">Diverse country formats</span>
+                    <span class="pill">Local-first privacy</span>
+                    <span class="pill">Inspectable JSON artifacts</span>
+                </div>
+            </section>
+            <article class="hero-panel">
+                <div>
+                    <div class="section-chip">Notebook context</div>
+                    <h2>The notebook itself advertises the next step</h2>
+                    <p>
+                        The tesseract-ocr notebook is labeled as the document OCR agent and points to the next vision-language document understanding notebook. The branch is represented as a chain of components.
+                    </p>
+                </div>
+                <ul class="hero-list">
+                    <li>OCR extraction with layout metadata and bounding boxes.</li>
+                    <li>Zero-shot semantic interpretation through local or cloud VLM experiments.</li>
+                    <li>Document-level executive summarization with prompt-managed outputs.</li>
+                    <li>Reconciliation and acceptance checks before higher-level decisions.</li>
+                </ul>
+            </article>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="site-shell">
+                <div class="section-head">
+                    <div class="eyebrow">Branch scope</div>
+                    <h2>Admissions documents are heterogeneous, multilingual, and hard to standardize</h2>
+                    <p>
+                        The paper states that OCR alone is not enough because admissions review depends on semantic interpretation of credential type, grading rules, and context. FAIR-VID combines OCR grounding with higher-level document reasoning instead of using either branch in isolation.
+                    </p>
+                </div>
+                <div class="wide-grid">
+                    <article class="wide-card">
+                        <div class="kicker">Paper figure</div>
+                        <h3>Documents are a primary evidence source</h3>
+                        <img src="images/fig1_three_main_types.png" alt="FAIR-VID evidence categories">
+                        <p class="figure-caption">
+                            Document images are processed in parallel with structured application data and video interviews, then merged later by the orchestration and decision layer.
+                        </p>
+                    </article>
+                    <article class="wide-card">
+                        <div class="kicker">Extended draft figure</div>
+                        <h3>Visual document understanding as a staged sequence</h3>
+                        <img src="images/vdu_sequence_diagram.png" alt="Visual document understanding sequence diagram">
+                        <p class="figure-caption">
+                            The larger draft introduces a staged view of document understanding. FAIR-VID uses a sequence of evidence-producing operations that can be re-run and inspected individually.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="site-shell">
+                <div class="section-head">
+                    <div class="eyebrow">Pipeline</div>
+                    <h2>Pipeline stages are visible to framework users</h2>
+                </div>
+                <div class="branch-grid">
+                    <article class="step-card">
+                        <div class="step-card-header">
+                            <div class="step-index">A</div>
+                            <h3>OCR extraction agent</h3>
+                        </div>
+                        <p>
+                            The entry notebook extracts text and layout metadata from document images. The notebook is presented as a reusable agent and explicitly describes its role inside the digital twin.
+                        </p>
+                        <div class="pill-row">
+                            <span class="pill">tesseract-ocr.ipynb</span>
+                            <span class="pill">Bounding boxes</span>
+                        </div>
+                    </article>
+                    <article class="step-card">
+                        <div class="step-card-header">
+                            <div class="step-index">B</div>
+                            <h3>Vision-language understanding</h3>
+                        </div>
+                        <p>
+                            FAIR-VID evaluates zero-shot document understanding with local and cloud models, but the production argument in the papers favors local-first execution because of privacy and regulatory limits around applicant documents.
+                        </p>
+                        <div class="pill-row">
+                            <span class="pill">Gemma and Ollama experiments</span>
+                            <span class="pill">Credential type inference</span>
+                        </div>
+                    </article>
+                    <article class="step-card">
+                        <div class="step-card-header">
+                            <div class="step-index">C</div>
+                            <h3>Document reconstruction and summarization</h3>
+                        </div>
+                        <p>
+                            Generated scripts such as merge_document_pages.py and doc_executiveSummary.py preserve the notebook logic while writing inspectable JSON or text artifacts under applicant folders.
+                        </p>
+                        <div class="pill-row">
+                            <span class="pill">merge_document_pages.py</span>
+                            <span class="pill">doc_executiveSummary.py</span>
+                        </div>
+                    </article>
+                    <article class="step-card">
+                        <div class="step-card-header">
+                            <div class="step-index">D</div>
+                            <h3>Reconciliation and acceptance checks</h3>
+                        </div>
+                        <p>
+                            The branch includes a reconciliation agent to compare extracted fields and semantics, plus eligibility and acceptance checks that prepare structured evidence for later decisions.
+                        </p>
+                        <div class="pill-row">
+                            <span class="pill">doc_reconciliationAgent.ipynb</span>
+                            <span class="pill">Admission_Eligibility_Checker_using_KB.ipynb</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="site-shell split-grid">
+                <article class="panel">
+                    <div class="eyebrow">Branch implementation</div>
+                    <h3>Notebook code and generated Python tell the same story</h3>
+                    <ul class="plain-list">
+                        <li>The document executive-summary script clones or updates the prompt repository automatically.</li>
+                        <li>Outputs are saved per applicant and per application instead of disappearing inside a monolithic service.</li>
+                        <li>Prompt files remain explicit and swappable, which supports prompt traceability and audit.</li>
+                        <li>Filter TSV files allow deterministic subdirectory selection for controlled reruns.</li>
+                    </ul>
+                </article>
+                <article class="callout">
+                    <div class="eyebrow">Privacy and limits</div>
+                    <h3>Cloud VLM dependency constraints</h3>
+                    <p>
+                        The broader draft states this directly: cloud vision models may perform well, but public-cloud document analysis is often blocked by GDPR-related transfer concerns and operational cost. FAIR-VID treats local execution as an architectural requirement.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="site-shell">
+                <div class="section-head">
+                    <div class="eyebrow">Branch entry points</div>
+                    <h2>Notebooks and repositories linked from this branch</h2>
+                </div>
+                <div class="link-grid">
+                    <article class="link-card">
+                        <h3>Start with OCR</h3>
+                        <p>Explicit entry notebook for the document branch.</p>
+                        <a class="text-link" href="https://colab.research.google.com/drive/1RfXAZ_5rwYmLdAiHPgm-bDOBrQu2T7Sw?usp=sharing" target="_blank" rel="noreferrer">Open tesseract-ocr.ipynb</a>
+                    </article>
+                    <article class="link-card">
+                        <h3>Executive summarization</h3>
+                        <p>The document summary notebook explicitly points to reconciliation and later applicant-level reasoning.</p>
+                        <a class="text-link" href="https://colab.research.google.com/drive/1T92JMD3UEdxf0viVcqQNXQP7nBSZHLPj?usp=sharing" target="_blank" rel="noreferrer">Open reconciliation agent</a>
+                    </article>
+                    <article class="link-card">
+                        <h3>Prompt repository</h3>
+                        <p>Document-analysis prompt files used by the generated Python modules.</p>
+                        <a class="text-link" href="https://github.com/fair-vid/admission_prompts" target="_blank" rel="noreferrer">Open admission_prompts</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="site-shell footer-card">
+            <strong>Document branch summary</strong>
+            <p>
+                FAIR-VID exposes document understanding as a chain of inspectable stages: OCR, VLM interpretation, aggregation, summarization, reconciliation, and eligibility logic. That chain is now visible in the site structure and linked directly to the notebooks that implement it.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
